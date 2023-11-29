@@ -12,11 +12,11 @@
 #include "swe_keys.h"
 
 #define DEFAULT     0
-#define GAMING      1
-#define SYMBOLS_SWE 2
-#define FUNC        3
-#define NUMBER      4
-#define SETTINGS    5
+//#define GAMING      1
+#define SYMBOLS_SWE 1
+#define FUNC        2
+#define NUMBER      3
+#define SETTINGS    4
 
 / {
     behaviors {
@@ -55,12 +55,12 @@
 │22 23 24 25 26 27│ │28 29 30 31 32 33│
 ╰────────╮34 35 36│ │37 38 39╭────────╯
          ╰────────╯ ╰────────╯       */
-/*    combos {
+    combos {
         compatible = "zmk,combos";
 
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <0 1>;
+            key-positions = <17 18>;
             bindings = <&kp ESC>;
         };
         combo_tab {
@@ -68,7 +68,7 @@
             key-positions = <10 11>;
             bindings = <&kp TAB>;
         };
-        combo_ralt {
+/*	combo_ralt {
             timeout-ms = <50>;
             key-positions = <17 16>;
             bindings = <&kp RALT>;
@@ -78,30 +78,32 @@
             key-positions = <11 12>;
             bindings = <&kp LALT>;
         };
+	*/
         combo_lgui {
             timeout-ms = <50>;
-            key-positions = <12 13>;
+            key-positions = <24 25>;
             bindings = <&kp LGUI>;
         };
-        combo_rgui {
+/*        combo_rgui {
             timeout-ms = <50>;
             key-positions = <17 18>;
             bindings = <&kp RGUI>;
-        };
-    }; */
+        }; */
+    };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                        &kp Q       &kp W       &kp F         &kp P           &kp B                        &kp J                 &kp L        &kp U         &kp Y       &kp SE_AE
-            &kp LSHIFT  &hs LGUI A  &hm LALT R  &hm LSHIFT S  &hm LCTRL T     &kp G                        &kp M                 &hm RCTRL N  &hm RSHIFT E  &hm RALT I  &hs RGUI O  &kp SE_AA
-            &kp N2      &kp Z       &kp X       &kp C         &kp D           &kp V                        &kp K                 &kp H        &kp COMMA     &kp DOT     &kp SE_OO   &kp ENTER
-                                                              &lt NUMBER TAB  &kp SPACE  &kp N3   &kp DEL  &lt SYMBOLS_SWE BSPC  &lt FUNC ESC
+                        &kp Q       &kp W       &kp E         &kp R           &kp T                        &kp Y                 &kp U        &kp I         &kp O       &kp P
+            &kp LCTRL	&hs A  &kp S  &kp D  &kp F     &kp G                        &kp H                 &kp J	&kp K  &kp L  &kp SEMI  &kp RET
+            &kp LSHIFT     &kp Z       &kp X       &kp C         &kp V           &kp B                        &kp N                &kp M        &kp COMMA     &kp DOT     &kp FSLH   &kp RSHIFT
+                                                        &kp LALT  &lt SYMBOLS_SWE BSPC  &mo NUMBER	&kp N3	&kp SPACE  &kp DEL 
             >;
         };
 
+/*
         gaming_layer {
             bindings = <
                         &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                     &kp J                 &kp L        &kp U         &kp Y       &kp BSPC
@@ -110,7 +112,7 @@
                                                 &kp LCTRL  &kp SPACE  &kp ESC   &none &lt SYMBOLS_SWE BSPC  &lt FUNC ESC
             >;
         };
-
+*/
         symbols_swe_layer {
             bindings = <
                    &kp SE_DQT       &kp SE_AT         &kp SE_EXCL         &kp SE_PLUS         &kp SE_BSLH                   &kp SE_LPAR   &kp SE_RPAR         &kp SE_UNDER         &kp SE_QMARK      &none
@@ -127,12 +129,7 @@
             &none  &kp CAPS  &kp F9  &kp F10  &kp F11  &kp F12                   &kp C_PREV  &kp C_PP   &kp C_NEXT  &kp K_MUTE  &none    &kp C_VOL_DN
                                               &none    &trans   &trans   &trans  &trans      &none
             >;
-        };
-
-        number_layer {
-            bindings = <
-                   &kp N1       &kp N2      &kp N3         &kp N4        &kp N5                         &kp N6        &kp N7        &kp N8         &kp N9       &kp N0
-            &none  &hs LGUI  N6 &hm LALT N7 &hm LSHIFT N8  &hm LCTRL N9  &kp N0                         &kp SE_MINUS  &hm RCTRL N4  &hm RSHIFT N5  &hm RALT N6  &hm RGUI COMMA  &none
+        }; number_layer { bindings = < &kp N1       &kp N2      &kp N3         &kp N4        &kp N5                         &kp N6        &kp N7        &kp N8         &kp N9       &kp N0 &none  &hs LGUI  N6 &hm LALT N7 &hm LSHIFT N8  &hm LCTRL N9  &kp N0                         &kp SE_MINUS  &hm RCTRL N4  &hm RSHIFT N5  &hm RALT N6  &hm RGUI COMMA  &none
             &none  &none        &none       &none          &none         &kp SE_EQUAL                   &kp SE_PLUS   &kp N1        &kp N2         &kp N3       &kp DOT         &none
                                                            &none         &trans        &trans   &trans  &none         &kp N0
             >;
