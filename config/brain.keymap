@@ -127,9 +127,9 @@
 
         symbols {
             bindings = <
-       &kp EXCLAMATION  &kp SE_AT         &kp SE_EXCL         &kp SE_PLUS         &kp SE_BSLH  &kp SE_LPAR   &kp SE_RPAR         &kp SE_UNDER         &kp SE_QMARK      &none
-&none  &hs LGUI SE_SQT  &hm LALT SE_AMPS  &hm LSHIFT SE_STAR  &hm LCTRL SE_GRAVE  &kp SE_LBKT  &kp SE_MINUS  &hm RCTRL SE_TILDE  &hm RSHIFT SE_EQUAL  &hm RALT SE_PIPE  &kp RGUI  &none
-&none  &kp SE_PRCNT     &kp SE_HASH       &kp SE_CARET        &kp SE_DLLR         &kp SE_RBKT  &kp SE_LBRC   &kp SE_RBRC         &kp SE_LT            &kp SE_GT         &none     &none
+       &kp EXCLAMATION  &kp AT_SIGN       &kp HASH            &kp DOLLAR          &kp PERCENT  &kp CARET     &kp AMPERSAND       &kp ASTERISK         &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&none  &hs LGUI SE_SQT  &hm LALT SE_AMPS  &hm LSHIFT SE_STAR  &hm LCTRL SE_GRAVE  &kp SE_LBKT  &kp SE_MINUS  &hm RCTRL SE_TILDE  &hm RSHIFT SE_EQUAL  &hm RALT SE_PIPE  &kp RGUI           &none
+&none  &kp SE_PRCNT     &kp SE_HASH       &kp SE_CARET        &kp SE_DLLR         &kp SE_RBKT  &kp SE_LBRC   &kp SE_RBRC         &kp SE_LT            &kp SE_GT         &none              &none
                                           &none               &kp SE_FSLH         &trans       &trans        &trans              &none
             >;
         };
