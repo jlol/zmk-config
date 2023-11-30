@@ -162,10 +162,10 @@
 
         func_layer {
             bindings = <
-       &none      &kp LS(LG(S))  &none       &none              &kp LS(INSERT)   &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END    &none
-&none  &alt_f1_1  &none          &none       &none              &none            &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none  &none
-&none  &none      &none          &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_PREV      &kp C_PP        &kp C_NEXT    &none      &none  &none
-                                 &none       &trans             &trans           &trans          &trans          &none
+       &none      &kp LS(LG(S))  &none          &kp LC(INSERT)     &kp LS(INSERT)   &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END    &none
+&none  &alt_f1_1  &kp LS(LC(C))  &kp LS(LC(R))  &none              &none            &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none  &none
+&none  &none      &none          &kp K_MUTE     &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_PREV      &kp C_PP        &kp C_NEXT    &none      &none  &none
+                                 &none          &trans             &trans           &trans          &trans          &none
             >;
         };
 
