@@ -22,6 +22,7 @@
 
 / {
     behaviors {
+    /*
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -41,6 +42,7 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+	*/
 
         lt_spc: lt_spc {
             compatible = "zmk,behavior-hold-tap";
@@ -53,6 +55,7 @@
             flavor = "tap-preferred";
         };
 
+/*
         thr: tap_hold_repeat {
             compatible = "zmk,behavior-hold-tap";
             label = "THR";
@@ -62,6 +65,7 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+	*/
     };
 
     cond_layers {
@@ -152,20 +156,9 @@
             &kp Q  &kp W  &kp E                &kp R  &kp T         &kp Y       &kp U  &kp I                         &kp O    &kp P
 &kp LCTRL   &kp A  &kp S  &kp D                &kp F  &kp G         &kp H       &kp J  &kp K                         &kp L    &kp SEMI  &kp RET
 &kp LSHIFT  &kp Z  &kp X  &kp C                &kp V  &kp B         &kp N       &kp M  &kp COMMA                     &kp DOT  &kp FSLH  &kp RSHIFT
-                          &lt_spc 2 BACKSPACE  &mo 3  &kp LEFT_ALT  &kp DELETE  &mo 1  &thr LS(LC(RIGHT_ALT)) SPACE
+                          &lt_spc 2 BACKSPACE  &mo 3  &kp LEFT_ALT  &kp DELETE  &mo 1  &kp SPACE
             >;
         };
-
-        /*
-        gaming_layer {
-            bindings = <
-                        &kp N1  &kp N2  &kp N3  &kp N4     &kp N5                     &kp J                 &kp L        &kp U         &kp Y       &kp BSPC
-            &kp LSHIFT  &kp Q   &kp W   &kp E   &kp R      &kp Y                      &kp M                 &hm RCTRL N  &hm RSHIFT E  &hm RALT I  &hs RGUI O  &none
-            &kp TAB     &kp A   &kp S   &kp D   &kp F      &kp G                      &kp Z                 &kp N        &kp E         &kp I       &kp O       &none
-                                                &kp LCTRL  &kp SPACE  &kp ESC   &none &lt SYMBOLS_SWE BSPC  &lt FUNC ESC
-            >;
-        };
-*/
 
         symbols {
             bindings = <
