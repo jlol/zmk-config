@@ -230,10 +230,6 @@
 	};
     };
 
-/ {
-    behaviors {
-
-    };
 };
 
     keymap {
