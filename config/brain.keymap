@@ -230,8 +230,6 @@
 	};
     };
 
-};
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -290,5 +288,5 @@
                      &none  &none  &none  &kp COMMA  &kp DOT  &kp N0
             >;
         };
-    ;
+    };
 };
