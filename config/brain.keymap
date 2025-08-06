@@ -22,16 +22,6 @@
 / {
     behaviors {
 
-	del_gui: mod_tap_del_gui {
-		compatible = "zmk,behavior-hold-tap";
-		label = "MT_DEL_GUI";
-		#binding-cells = <2>;
-		flavor = "tap-preferred";
-		tapping-term-ms = <200>;   // hold time for LGUI
-		quick-tap-ms = <175>;      // time window for auto-repeat
-		bindings = <&kp LGUI>, <&kp DELETE>;
-	};
-
         lt_spc: lt_spc {
             compatible = "zmk,behavior-hold-tap";
             label = "LT_SPC";
