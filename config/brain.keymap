@@ -21,27 +21,16 @@
 
 / {
     behaviors {
-        /*
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
 
-        hs: homerow_mods_slow {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_SLOW";
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-	*/
+	del_gui: mod_tap_del_gui {
+		compatible = "zmk,behavior-hold-tap";
+		label = "MT_DEL_GUI";
+		#binding-cells = <2>;
+		flavor = "tap-preferred";
+		tapping-term-ms = <200>;   // hold time for LGUI
+		quick-tap-ms = <175>;      // time window for auto-repeat
+		bindings = <&kp LGUI>, <&kp DELETE>;
+	};
 
         lt_spc: lt_spc {
             compatible = "zmk,behavior-hold-tap";
@@ -54,17 +43,6 @@
             flavor = "tap-preferred";
         };
 
-	/*
-        thr: tap_hold_repeat {
-            compatible = "zmk,behavior-hold-tap";
-            label = "THR";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-	*/
 	leader_alt: leader_alt {
 		compatible = "zmk,behavior-hold-tap";
 		label = "LT_LEADER_ALT";
@@ -81,13 +59,13 @@
 		#binding-cells = <0>;
 
 		/* Window management */
-		kill_win  { sequence = <W K>;        bindings = <&kp LS(LG(Q))>; };
+		kill_win  { sequence = <Q>;        bindings = <&kp LS(LG(Q))>; };
 
-		send_ws1  { sequence = <W S A>;     bindings = <&kp LS(LG(N1))>; };
-		send_ws2  { sequence = <W S S>;     bindings = <&kp LS(LG(N2))>; };
-		send_ws3  { sequence = <W S D>;     bindings = <&kp LS(LG(N3))>; };
-		send_ws4  { sequence = <W S F>;     bindings = <&kp LS(LG(N4))>; };
-		send_ws5  { sequence = <W S G>;     bindings = <&kp LS(LG(N5))>; };
+		send_ws1  { sequence = <S A>;     bindings = <&kp LS(LG(N1))>; };
+		send_ws2  { sequence = <S S>;     bindings = <&kp LS(LG(N2))>; };
+		send_ws3  { sequence = <S D>;     bindings = <&kp LS(LG(N3))>; };
+		send_ws4  { sequence = <S F>;     bindings = <&kp LS(LG(N4))>; };
+		send_ws5  { sequence = <S G>;     bindings = <&kp LS(LG(N5))>; };
 		/* Workspaces 1–5 (focus) */
 		ws1       { sequence = <W A>;       bindings = <&kp LG(N1)>; };
 		ws2       { sequence = <W S>;       bindings = <&kp LG(N2)>; };
@@ -98,35 +76,36 @@
 		/* TOGGLE  */
 		toggle_fs { sequence = <T F>;        bindings = <&kp LG(F)>; };
 		toggle_float { sequence = <T L>;     bindings = <&kp LS(LG(SPACE))>; };
-		toggle_split { sequence = <T S>;     bindings = <&kp LG(SPACE)>; };
+		toggle_split { sequence = <T S P>;     bindings = <&kp LG(E)>; };
+		toggle_split_v { sequence = <T V>;     bindings = <&kp LG(V)>; };
+		toggle_split_h { sequence = <T H>;     bindings = <&kp LG(B)>; };
 		/* Layout modes */
 		tabbed    { sequence = <T T>;      bindings = <&kp LG(W)>; };
-		stacked   { sequence = <T K>;      bindings = <&kp LG(S)>; };
+		stacked   { sequence = <T S T>;      bindings = <&kp LG(S)>; };
 
 		/* Move focus */
-		focus_l   { sequence = <H>;        bindings = <&kp LG(H)>; };
+		focus_h   { sequence = <H>;        bindings = <&kp LG(H)>; };
 		focus_j   { sequence = <J>;        bindings = <&kp LG(J)>; };
 		focus_k   { sequence = <K>;        bindings = <&kp LG(K)>; };
-		focus_l2  { sequence = <L>;        bindings = <&kp LG(L)>; };
+		focus_l   { sequence = <L>;        bindings = <&kp LG(L)>; };
 
 		/* OPEN */
 		new_win   { sequence = <O T>;        bindings = <&kp LG(RETURN)>; };
 
 		/* Move window */
-		move_l    { sequence = <LSHIFT H>; bindings = <&kp LS(LG(H))>; };
-		move_j    { sequence = <LSHIFT J>; bindings = <&kp LS(LG(J))>; };
-		move_k    { sequence = <LSHIFT K>; bindings = <&kp LS(LG(K))>; };
-		move_l3   { sequence = <LSHIFT L>; bindings = <&kp LS(LG(L))>; };
+		move_h    { sequence = <M H>; bindings = <&kp LS(LG(H))>; };
+		move_j    { sequence = <M J>; bindings = <&kp LS(LG(J))>; };
+		move_k    { sequence = <M K>; bindings = <&kp LS(LG(K))>; };
+		move_l    { sequence = <M L>; bindings = <&kp LS(LG(L))>; };
 
 
 		/* Scratchpad & launcher */
 		launcher  { sequence = <D>;        bindings = <&kp LG(D)>; };
 
-
 		/* System / media */
 		//reload    { sequence = <R>;        bindings = <&kp LS(LG(C))>; };
-		lock      { sequence = <S L>;      bindings = <&kp LC(LG(L))>; };
-		quit_sway { sequence = <S Q>;        bindings = <&kp LS(LG(E))>; };
+		lock      { sequence = <Z L>;      bindings = <&kp LC(LG(L))>; };
+		quit_sway { sequence = <Z Q>;        bindings = <&kp LS(LG(E))>; };
 	};
     };
 
@@ -164,17 +143,6 @@
             bindings = <&kp TAB>;
         };
 
-        /*	combo_ralt {
-            timeout-ms = <50>;
-            key-positions = <17 16>;
-            bindings = <&kp RALT>;
-        };
-        combo_lalt {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&kp LALT>;
-        };
-	*/
 
         combo_lgui {
             timeout-ms = <50>;
@@ -194,11 +162,6 @@
             timeout-ms = <10>;
         };
 
-        /*        combo_rgui {
-            timeout-ms = <50>;
-            key-positions = <17 18>;
-            bindings = <&kp RGUI>;
-        }; */
     };
 
     macros {
@@ -238,7 +201,7 @@
             &kp Q  &kp W  &kp E                &kp R  &kp T	         	&kp Y       &kp U  &kp I                         &kp O    &kp P
 &kp LCTRL   &kp A  &kp S  &kp D                &kp F  &kp G         		&kp H       &kp J  &kp K                         &kp L    &kp SEMI  &kp RET
 &kp LSHIFT  &kp Z  &kp X  &kp C                &kp V  &kp B         		&kp N       &kp M  &kp COMMA                     &kp DOT  &kp FSLH  &kp RSHIFT
-                          &lt_spc 2 BACKSPACE  &mo 3  &leader_alt LEFT_ALT &leader	 &kp DELETE  &mo 1  &kp SPACE
+                          &lt_spc 2 BACKSPACE  &mo 3  &leader_alt LEFT_ALT &leader	 &lt_spc 5 DELETE  &mo 1  &kp SPACE
             >;
         };
 
@@ -247,7 +210,7 @@
               &kp EXCLAMATION       &kp AT_SIGN      &kp HASH              &kp DOLLAR             &kp PERCENT  			&kp CARET       &kp AMPERSAND  &kp ASTERISK  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
 &kp GRAVE     &kp LEFT_BRACE        &kp RIGHT_BRACE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PIPE    			&kp UNDERSCORE  &kp PLUS       &kp MINUS     &kp EQUAL         &kp DOUBLE_QUOTES  &kp SQT
 &kp CAPSLOCK  &kp BACKSLASH  	    &kp TILDE        &sway_ws_back	&sway_ws_prev	&sway_ws_next			&none           &none          &none         &none             &none              &none
-                                                     &none                 &to 5                          &to 4        	  &trans          &trans         &none
+                                             &none                 &none                          &to 4        	  &trans          &trans         &none
             >;
         };
 
@@ -280,12 +243,12 @@
             >;
         };
 
-        numpad {
+        shortcuts {
             bindings = <
-       &none  &none  &none  &none  &none  &kp N1     &kp N2   &kp N3  &kp PLUS   &kp BSLH
-&none  &none  &none  &none  &none  &none  &kp N4     &kp N5   &kp N6  &kp MINUS  &none     &none
-&none  &none  &none  &none  &none  &none  &kp N7     &kp N8   &kp N9  &kp EQUAL  &none     &to 0
-                     &none  &none  &none  &kp COMMA  &kp DOT  &kp N0
+       &kp LS(LG(Q)) &kp LS(LG(E))  &kp LS(LG(W)) &kp LS(LG(S)) &kp LS(LG(SPACE))		&none  &none  &none  &none  &none
+&kp LG(F) &kp LG(N1) &kp LG(N2)  &kp LG(N3) &kp LG(N4) &kp LG(N5)			        &kp LG(H) &kp LG(J)  &kp LG(K) &kp LG(L) &none &kp LG(RET)
+&kp LS(LG(X)) &none  &kp LS(LG(D)) &sway_ws_back	&sway_ws_prev	&sway_ws_next  		&kp LS(LG(H)) &kp LS(LG(J))  &kp LS(LG(K)) &kp LS(LG(L)) &none &none
+                     					&none  &none	&none			&none  &none  &none  
             >;
         };
     };
