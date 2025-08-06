@@ -33,16 +33,6 @@
             flavor = "tap-preferred";
         };
 
-	leader_alt: leader_alt {
-		compatible = "zmk,behavior-hold-tap";
-		label = "LT_LEADER_ALT";
-		#binding-cells = <2>;
-		flavor = "tap-preferred";
-		tapping-term-ms = <200>;
-		quick-tap-ms = <150>;
-		bindings = <&kp LALT>, <&leader>;
-	};	
-
 	leader: leader {
 		compatible = "zmk,behavior-leader-key";
 		#binding-cells = <0>;
@@ -96,6 +86,17 @@
 		lock      { sequence = <Z L>;      bindings = <&kp LC(LG(L))>; };
 		quit_sway { sequence = <Z Q>;        bindings = <&kp LS(LG(E))>; };
 	};
+	
+	leader_alt: leader_alt {
+		compatible = "zmk,behavior-hold-tap";
+		label = "LT_LEADER_ALT";
+		#binding-cells = <2>;
+		flavor = "tap-preferred";
+		tapping-term-ms = <200>;
+		quick-tap-ms = <150>;
+		bindings = <&kp LALT>, <&leader>;
+	};	
+
     };
 
     cond_layers {
