@@ -36,6 +36,7 @@
 	leader: leader {
 		compatible = "zmk,behavior-leader-key";
 		#binding-cells = <0>;
+                timeout-ms = <1000>;
 
 		/* Window management */
 		kill_win  { sequence = <Q>;        bindings = <&kp LS(LG(Q))>; };
@@ -94,7 +95,7 @@
 		flavor = "tap-preferred";
 		tapping-term-ms = <200>;
 		quick-tap-ms = <150>;
-		bindings = <&kp LALT>, <&leader>;
+		bindings = <&kp LALT &leader>;
 	};	
 
     };
