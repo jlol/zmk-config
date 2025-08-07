@@ -36,7 +36,6 @@
 	leader: leader {
 		compatible = "zmk,behavior-leader-key";
 		#binding-cells = <0>;
-                timeout-ms = <1000>;
 
 		/* Window management */
 		kill_win  { sequence = <Q>;        bindings = <&kp LS(LG(Q))>; };
@@ -77,7 +76,6 @@
 		move_j    { sequence = <M J>; bindings = <&kp LS(LG(J))>; };
 		move_k    { sequence = <M K>; bindings = <&kp LS(LG(K))>; };
 		move_l    { sequence = <M L>; bindings = <&kp LS(LG(L))>; };
-
 
 		/* Scratchpad & launcher */
 		launcher  { sequence = <D>;        bindings = <&kp LG(D)>; };
