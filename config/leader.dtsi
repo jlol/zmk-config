@@ -1,0 +1,111 @@
+
+#undef ZMK_LEADER_SEQUENCE
+#define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
+    / { \
+        behaviors { \
+            leader: leader { \
+                compatible = "zmk,behavior-leader-key"; \
+                #binding-cells = <0>; \
+                ignore-keys = <LSHFT RSHFT>; \
+                leader_sequence_ ## name { \
+                    bindings = <leader_bindings>; \
+                    sequence = <leader_sequence>; \
+                }; \
+            }; \
+        }; \
+    };
+
+    /*
+	leader: leader {
+		compatible = "zmk,behavior-leader-key";
+		#binding-cells = <0>;
+
+		// Window management 
+		kill_win  { sequence = <Q>;        bindings = <&kp LS(LG(Q))>; };
+
+		send_ws1  { sequence = <S A>;     bindings = <&kp LS(LG(N1))>; };
+		send_ws2  { sequence = <S S>;     bindings = <&kp LS(LG(N2))>; };
+		send_ws3  { sequence = <S D>;     bindings = <&kp LS(LG(N3))>; };
+		send_ws4  { sequence = <S F>;     bindings = <&kp LS(LG(N4))>; };
+		send_ws5  { sequence = <S G>;     bindings = <&kp LS(LG(N5))>; };
+		// Workspaces 1–5 (focus) /
+		ws1       { sequence = <W A>;       bindings = <&kp LG(N1)>; };
+		ws2       { sequence = <W S>;       bindings = <&kp LG(N2)>; };
+		ws3       { sequence = <W D>;       bindings = <&kp LG(N3)>; };
+		ws4       { sequence = <W F>;       bindings = <&kp LG(N4)>; };
+		ws5       { sequence = <W G>;       bindings = <&kp LG(N5)>; };
+
+		// TOGGLE  /
+		toggle_fs { sequence = <T F>;        bindings = <&kp LG(F)>; };
+		toggle_float { sequence = <T L>;     bindings = <&kp LS(LG(SPACE))>; };
+		toggle_split { sequence = <T S P>;     bindings = <&kp LG(E)>; };
+		toggle_split_v { sequence = <T V>;     bindings = <&kp LG(V)>; };
+		toggle_split_h { sequence = <T H>;     bindings = <&kp LG(B)>; };
+		// Layout modes //
+		tabbed    { sequence = <T T>;      bindings = <&kp LG(W)>; };
+		stacked   { sequence = <T S T>;      bindings = <&kp LG(S)>; };
+
+		// Move focus //
+		focus_h   { sequence = <H>;        bindings = <&kp LG(H)>; };
+		focus_j   { sequence = <J>;        bindings = <&kp LG(J)>; };
+		focus_k   { sequence = <K>;        bindings = <&kp LG(K)>; };
+		focus_l   { sequence = <L>;        bindings = <&kp LG(L)>; };
+
+		// OPEN //
+		new_win   { sequence = <O T>;        bindings = <&kp LG(RETURN)>; };
+
+		// Move window //
+		move_h    { sequence = <M H>; bindings = <&kp LS(LG(H))>; };
+		move_j    { sequence = <M J>; bindings = <&kp LS(LG(J))>; };
+		move_k    { sequence = <M K>; bindings = <&kp LS(LG(K))>; };
+		move_l    { sequence = <M L>; bindings = <&kp LS(LG(L))>; };
+
+		// Scratchpad & launcher //
+		launcher  { sequence = <D>;        bindings = <&kp LG(D)>; };
+
+		// System / media //
+		//reload    { sequence = <R>;        bindings = <&kp LS(LG(C))>; };
+		lock      { sequence = <Z L>;      bindings = <&kp LC(LG(L))>; };
+		quit_sway { sequence = <Z Q>;        bindings = <&kp LS(LG(E))>; };
+	};
+*/
+
+// German umlauts //
+ZMK_LEADER_SEQUENCE(de_ae,      &uc UC_DE_AE,         A)  // ä
+ZMK_LEADER_SEQUENCE(de_oe,      &uc UC_DE_OE,         O)  // ö
+ZMK_LEADER_SEQUENCE(de_ue,      &uc UC_DE_UE,         U)  // ü
+ZMK_LEADER_SEQUENCE(de_eszett,  &uc UC_DE_SS,         S)  // ß
+
+// Greek letters //
+ZMK_LEADER_SEQUENCE(el_alpha,   &uc UC_EL_ALPHA,      E A)  // α
+ZMK_LEADER_SEQUENCE(el_beta,    &uc UC_EL_BETA,       E B)  // β
+ZMK_LEADER_SEQUENCE(el_gamma,   &uc UC_EL_GAMMA,      E G)  // γ
+ZMK_LEADER_SEQUENCE(el_delta,   &uc UC_EL_DELTA,      E D)  // δ
+ZMK_LEADER_SEQUENCE(el_epsilon, &uc UC_EL_EPSILON,    E E)  // ε
+ZMK_LEADER_SEQUENCE(el_zeta,    &uc UC_EL_ZETA,       E Z)  // ζ
+ZMK_LEADER_SEQUENCE(el_eta,     &uc UC_EL_ETA,        E H)  // η
+ZMK_LEADER_SEQUENCE(el_theta,   &uc UC_EL_THETA,      E V)  // θ
+ZMK_LEADER_SEQUENCE(el_iota,    &uc UC_EL_IOTA,       E I)  // ι
+ZMK_LEADER_SEQUENCE(el_kappa,   &uc UC_EL_KAPPA,      E K)  // κ
+ZMK_LEADER_SEQUENCE(el_lambda,  &uc UC_EL_LAMBDA,     E L)  // λ
+ZMK_LEADER_SEQUENCE(el_mu,      &uc UC_EL_MU,         E M)  // μ
+ZMK_LEADER_SEQUENCE(el_nu,      &uc UC_EL_NU,         E N)  // ν
+ZMK_LEADER_SEQUENCE(el_xi,      &uc UC_EL_XI,         E X)  // ξ
+ZMK_LEADER_SEQUENCE(el_omikron, &uc UC_EL_OMIKRON,    E O)  // ο
+ZMK_LEADER_SEQUENCE(el_pi,      &uc UC_EL_PI,         E P)  // π
+ZMK_LEADER_SEQUENCE(el_rho,     &uc UC_EL_RHO,        E R)  // ρ
+ZMK_LEADER_SEQUENCE(el_sigma,   &uc UC_EL_SIGMA,      E S)  // σ
+ZMK_LEADER_SEQUENCE(el_tau,     &uc UC_EL_TAU,        E T)  // τ
+ZMK_LEADER_SEQUENCE(el_upsilon, &uc UC_EL_UPSILON,    E U)  // υ
+ZMK_LEADER_SEQUENCE(el_phi,     &uc UC_EL_PHI,        E F)  // ϕ
+ZMK_LEADER_SEQUENCE(el_chi,     &uc UC_EL_CHI,        E C)  // χ
+ZMK_LEADER_SEQUENCE(el_psi,     &uc UC_EL_PSI,        E Y)  // ψ
+ZMK_LEADER_SEQUENCE(el_omega,   &uc UC_EL_OMEGA,      E W)  // ω
+
+// BLE and USB
+#ifdef CONFIG_WIRELESS
+ZMK_LEADER_SEQUENCE(usb,        &out OUT_USB,   U S B)
+ZMK_LEADER_SEQUENCE(ble,        &out OUT_BLE,   B L E)
+#endif // CONFIG_WIRELESS
+ZMK_LEADER_SEQUENCE(reset,      &sys_reset,     R E S E T)
+ZMK_LEADER_SEQUENCE(boot,       &bootloader,    B O O T)
