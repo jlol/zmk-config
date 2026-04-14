@@ -5,9 +5,8 @@
 │22 23 24 25 26 27│ │28 29 30 31 32 33│
 ╰────────╮34 35 36│ │37 38 39╭────────╯
          ╰────────╯ ╰────────╯       */
-#undef ZMK_LEADER_SEQUENCE
-#define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
-/ {
+#undef ZMK_COMBOS_DEF
+#define ZMK_COMBOS_DEF(name, leader_bindings, leader_sequence) \
 
 #define COMBO_TERM_FAST 18
 #define COMBO_TERM_SLOW 30
@@ -16,7 +15,7 @@
 #define COMBO_IDLE_SLOW 50
 
 
-combos {
+/ combos {
     compatible = "zmk,combos";
 
     combo_esc {
