@@ -1,7 +1,9 @@
 
 #undef ZMK_LEADER_SEQUENCE
 #define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
+
 / {
+
     behaviors {
         leader: leader {
             compatible = "zmk,behavior-leader-key";
