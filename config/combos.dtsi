@@ -14,47 +14,48 @@
 #define COMBO_IDLE_FAST 150
 #define COMBO_IDLE_SLOW 50
 
+/ {
 
-/ combos {
-    compatible = "zmk,combos";
+    / combos {
+        compatible = "zmk,combos";
 
-    combo_esc {
-        timeout-ms = <50>;
-        key-positions = <17 18>;
-        bindings = <&kp ESC>;
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <17 18>;
+            bindings = <&kp ESC>;
+        };
+
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <14 15>;
+            bindings = <&kp TAB>;
+        };
+
+
+        combo_lgui {
+            timeout-ms = <50>;
+            key-positions = <24 25>;
+            bindings = <&kp LGUI>;
+        };
+
+        escape2 {
+            bindings = <&kp ESCAPE>;
+            key-positions = <0 1>;
+            timeout-ms = <50>;
+        };
+
+        tab_right {
+            bindings = <&kp TAB>;
+            key-positions = <16 17>;
+            timeout-ms = <10>;
+        };
+
+        leader_combo {
+            bindings = <&leader>;
+            key-positions = <26 27>;
+            timeout-ms = <10>;
+        };
     };
-
-    combo_tab {
-        timeout-ms = <50>;
-        key-positions = <14 15>;
-        bindings = <&kp TAB>;
-    };
-
-
-    combo_lgui {
-        timeout-ms = <50>;
-        key-positions = <24 25>;
-        bindings = <&kp LGUI>;
-    };
-
-    escape2 {
-        bindings = <&kp ESCAPE>;
-        key-positions = <0 1>;
-        timeout-ms = <50>;
-    };
-
-    tab_right {
-        bindings = <&kp TAB>;
-        key-positions = <16 17>;
-        timeout-ms = <10>;
-    };
-
-    leader_combo {
-        bindings = <&leader>;
-        key-positions = <26 27>;
-        timeout-ms = <10>;
-    };
-};
 };
 /*
 // Horizontal combos - left hand //
