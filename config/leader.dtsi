@@ -2,6 +2,7 @@
 #undef ZMK_LEADER_SEQUENCE
 #define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
 
+/*
 / {
 
     behaviors {
@@ -46,7 +47,7 @@
         };
     };
 };
-/*
+*/
     / { \
         behaviors { \
             leader: leader { \
@@ -61,6 +62,7 @@
         }; \
     };
 
+    /*
 #	leader: leader {
 #		compatible = "zmk,behavior-leader-key";
 #		#binding-cells = <0>;
@@ -113,7 +115,7 @@
 #		lock      { sequence = <Z L>;      bindings = <&kp LC(LG(L))>; };
 #		quit_sway { sequence = <Z Q>;        bindings = <&kp LS(LG(E))>; };
 #	};
-
+*/
 // German umlauts //
 ZMK_LEADER_SEQUENCE(de_ae,      &uc UC_DE_AE,         A)  // ä
 ZMK_LEADER_SEQUENCE(de_oe,      &uc UC_DE_OE,         O)  // ö
@@ -153,4 +155,3 @@ ZMK_LEADER_SEQUENCE(ble,        &out OUT_BLE,   B L E)
 #endif // CONFIG_WIRELESS
 ZMK_LEADER_SEQUENCE(reset,      &sys_reset,     R E S E T)
 ZMK_LEADER_SEQUENCE(boot,       &bootloader,    B O O T)
-*/
