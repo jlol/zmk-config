@@ -5,6 +5,9 @@
 │22 23 24 25 26 27│ │28 29 30 31 32 33│
 ╰────────╮34 35 36│ │37 38 39╭────────╯
          ╰────────╯ ╰────────╯       */
+#undef ZMK_LEADER_SEQUENCE
+#define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
+/ {
 
 #define COMBO_TERM_FAST 18
 #define COMBO_TERM_SLOW 30
@@ -53,7 +56,7 @@ combos {
         timeout-ms = <10>;
     };
 };
-
+};
 /*
 // Horizontal combos - left hand //
 ZMK_COMBO(esc,   &kp ESC,      17 18,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
