@@ -5,49 +5,6 @@
 │22 23 24 25 26 27│ │28 29 30 31 32 33│
 ╰────────╮34 35 36│ │37 38 39╭────────╯
          ╰────────╯ ╰────────╯       */
-	 /*
-    combos {
-        compatible = "zmk,combos";
-
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <17 18>;
-            bindings = <&kp ESC>;
-        };
-
-        combo_tab {
-            timeout-ms = <50>;
-            key-positions = <14 15>;
-            bindings = <&kp TAB>;
-        };
-
-
-        combo_lgui {
-            timeout-ms = <50>;
-            key-positions = <24 25>;
-            bindings = <&kp LGUI>;
-        };
-
-        escape2 {
-            bindings = <&kp ESCAPE>;
-            key-positions = <0 1>;
-            timeout-ms = <50>;
-        };
-
-        tab_right {
-            bindings = <&kp TAB>;
-            key-positions = <16 17>;
-            timeout-ms = <10>;
-        };
-
-        leader_combo {
-            bindings = <&leader>;
-            key-positions = <26 27>;
-            timeout-ms = <10>;
-        };
-    };
-    */
-
 
 #define COMBO_TERM_FAST 18
 #define COMBO_TERM_SLOW 30
@@ -55,13 +12,57 @@
 #define COMBO_IDLE_FAST 150
 #define COMBO_IDLE_SLOW 50
 
+
+combos {
+    compatible = "zmk,combos";
+
+    combo_esc {
+        timeout-ms = <50>;
+        key-positions = <17 18>;
+        bindings = <&kp ESC>;
+    };
+
+    combo_tab {
+        timeout-ms = <50>;
+        key-positions = <14 15>;
+        bindings = <&kp TAB>;
+    };
+
+
+    combo_lgui {
+        timeout-ms = <50>;
+        key-positions = <24 25>;
+        bindings = <&kp LGUI>;
+    };
+
+    escape2 {
+        bindings = <&kp ESCAPE>;
+        key-positions = <0 1>;
+        timeout-ms = <50>;
+    };
+
+    tab_right {
+        bindings = <&kp TAB>;
+        key-positions = <16 17>;
+        timeout-ms = <10>;
+    };
+
+    leader_combo {
+        bindings = <&leader>;
+        key-positions = <26 27>;
+        timeout-ms = <10>;
+    };
+};
+
+/*
 // Horizontal combos - left hand //
 ZMK_COMBO(esc,   &kp ESC,      17 18,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(tab, &kp TAB,	14 15,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(lgui, &kp LGUI,	24 25,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(esc2, &kp ESC,	0 1,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(tab2, &kp TAB,	16 17,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(lead, &leader,	26 27,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(tab, &kp TAB, 14 15,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(lgui, &kp LGUI,   24 25,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(esc2, &kp ESC,    0 1,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(tab2, &kp TAB,    16 17,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(lead, &leader,    26 27,     DEFAULT NAV NUM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+*/
 
 
 /*
