@@ -4,14 +4,15 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "swe_keys.h"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/pointing.h>
-
+#include <dt-bindings/zmk/ext_power.h>
+#ifndef KEYMAP_DRAWER
+#include "swe_keys.h"
+#endif
 
 #define DEFAULT     0
 #define SYMBOLS_SWE 1
@@ -20,6 +21,7 @@
 #define SETTINGS    4
 #define SHORTCUTS    5
 #define SHORTCUTS2    6
+#define COLEMAK    7
 
 / {
     behaviors {
@@ -34,62 +36,6 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
-
-	leader: leader {
-		compatible = "zmk,behavior-leader-key";
-		#binding-cells = <0>;
-
-		/* Window management */
-		kill_win  { sequence = <Q>;        bindings = <&kp LS(LG(Q))>; };
-
-		send_ws1  { sequence = <S A>;     bindings = <&kp LS(LG(N1))>; };
-		send_ws2  { sequence = <S S>;     bindings = <&kp LS(LG(N2))>; };
-		send_ws3  { sequence = <S D>;     bindings = <&kp LS(LG(N3))>; };
-		send_ws4  { sequence = <S F>;     bindings = <&kp LS(LG(N4))>; };
-		send_ws5  { sequence = <S G>;     bindings = <&kp LS(LG(N5))>; };
-		/* Workspaces 1–5 (focus) */
-		ws1       { sequence = <W A>;       bindings = <&kp LG(N1)>; };
-		ws2       { sequence = <W S>;       bindings = <&kp LG(N2)>; };
-		ws3       { sequence = <W D>;       bindings = <&kp LG(N3)>; };
-		ws4       { sequence = <W F>;       bindings = <&kp LG(N4)>; };
-		ws5       { sequence = <W G>;       bindings = <&kp LG(N5)>; };
-
-		/* TOGGLE  */
-		toggle_fs { sequence = <T F>;        bindings = <&kp LG(F)>; };
-		toggle_float { sequence = <T L>;     bindings = <&kp LS(LG(SPACE))>; };
-		toggle_split { sequence = <T S P>;     bindings = <&kp LG(E)>; };
-		toggle_split_v { sequence = <T V>;     bindings = <&kp LG(V)>; };
-		toggle_split_h { sequence = <T H>;     bindings = <&kp LG(B)>; };
-		/* Layout modes */
-		tabbed    { sequence = <T T>;      bindings = <&kp LG(W)>; };
-		stacked   { sequence = <T S T>;      bindings = <&kp LG(S)>; };
-
-		/* Move focus */
-		focus_h   { sequence = <H>;        bindings = <&kp LG(H)>; };
-		focus_j   { sequence = <J>;        bindings = <&kp LG(J)>; };
-		focus_k   { sequence = <K>;        bindings = <&kp LG(K)>; };
-		focus_l   { sequence = <L>;        bindings = <&kp LG(L)>; };
-
-		/* OPEN */
-		new_win   { sequence = <O T>;        bindings = <&kp LG(RETURN)>; };
-
-		/* Move window */
-		move_h    { sequence = <M H>; bindings = <&kp LS(LG(H))>; };
-		move_j    { sequence = <M J>; bindings = <&kp LS(LG(J))>; };
-		move_k    { sequence = <M K>; bindings = <&kp LS(LG(K))>; };
-		move_l    { sequence = <M L>; bindings = <&kp LS(LG(L))>; };
-
-		/* Scratchpad & launcher */
-		launcher  { sequence = <D>;        bindings = <&kp LG(D)>; };
-
-		/* System / media */
-		//reload    { sequence = <R>;        bindings = <&kp LS(LG(C))>; };
-		lock      { sequence = <Z L>;      bindings = <&kp LC(LG(L))>; };
-		quit_sway { sequence = <Z Q>;        bindings = <&kp LS(LG(E))>; };
-	};
-	
-
-
     };
 
     cond_layers {
@@ -142,12 +88,6 @@
         tab_right {
             bindings = <&kp TAB>;
             key-positions = <16 17>;
-            timeout-ms = <10>;
-        };
-
-        leader_combo {
-            bindings = <&leader>;
-            key-positions = <26 27>;
             timeout-ms = <10>;
         };
     };
@@ -246,6 +186,14 @@
 &kp LG(F) &kp LG(N1) &kp LG(N2)  &kp LG(N3) &kp LG(N4) &kp LG(N5)			        &kp LG(H) &kp LG(J)  &kp LG(K) &kp LG(L) &none &kp LG(RET)
 &kp LS(LG(X)) &none  &kp LG(D) &sway_ws_back	&sway_ws_prev	&sway_ws_next  		&kp LS(LG(H)) &kp LS(LG(J))  &kp LS(LG(K)) &kp LS(LG(L)) &none &none
                      					&none  &none	&none			&none  &none  &none  
+            >;
+
+        colemak {
+            bindings = <
+            &kp Q  &kp W  &kp E                &kp R  &kp T	         	&kp Y       &kp U  &kp I                         &kp O    &kp P
+&kp LCTRL   &kp A  &kp S  &kp D                &kp F  &kp G         		&kp H       &kp J  &kp K                         &kp L    &kp SEMI  &kp RET
+&kp LSHIFT  &kp Z  &kp X  &kp C                &kp V  &kp B         		&kp N       &kp M  &kp COMMA                     &kp DOT  &kp FSLH  &kp RSHIFT
+                          &lt_spc 2 BACKSPACE  &mo 3  &lt_spc 6 LALT	 	&lt_spc 5 DELETE  &mo 1  &kp SPACE
             >;
         };
     };

@@ -1,22 +1,11 @@
 manifest:
-  defaults:
-    remote: urob
-    revision: v0.3 # Pin everything to v0.3
-
   remotes:
-    - name: urob
-      url-base: https://github.com/urob
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-
   projects:
     - name: zmk
       remote: zmkfirmware
+      revision: main
       import: app/west.yml
-
-    # ZMK modules
-    - name: zmk-leader-key
-      path: modules/zmk/leader-key
-
   self:
     path: config
