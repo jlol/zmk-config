@@ -14,9 +14,9 @@
 ---
 include:
   # Brain https://github.com/Wesztman/brain
-  - board: nice_nano
+  - board: nice_nano//zmk
     shield: brain_left
-  - board: nice_nano
+  - board: nice_nano//zmk
     shield: brain_right
-  - board: nice_nano
+  - board: nice_nano//zmk
     shield: settings_reset
