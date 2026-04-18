@@ -14,13 +14,13 @@
 #endif
 
 #define DEFAULT     0
-#define SYMBOLS_SWE 1
+#define COLEMAK		1
 #define FUNC        2
 #define NUMBER      3
 #define SETTINGS    4
 #define SHORTCUTS    5
 #define SHORTCUTS2    6
-#define COLEMAK    7
+#define SYMBOLS    7
 
 / {
     behaviors {
@@ -145,28 +145,28 @@
             >;
         };
 
+
         /*
-         * Layer 1 — SYMBOLS
+         * Layer 7 — COLEMAK
          *          ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
-         *          │  !  │  @  │  #  │  $  │  %  │   │  ^  │  &  │  *  │  [  │  ]  │
+         *          │  Q  │  W  │  F  │  P  │  G  │   │  J  │  L  │  U  │  Y  │  ;  │
          * ┌────────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼────────┐
-         * │   `    │  {  │  }  │  (  │  )  │  |  │   │  _  │  +  │  -  │  =  │  "  │   '    │
+         * │ LCTRL  │  A  │  R  │  S  │  T  │  D  │   │  H  │  N  │  E  │  I  │  O  │  RET   │
          * ├────────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼────────┤
-         * │  CAPS  │  \  │  ~  │ws_bk│ws_pv│ws_nx│   │     │     │     │     │     │        │
+         * │ LSHIFT │  Z  │  X  │  C  │  V  │  B  │   │  K  │  M  │  ,  │  .  │  /  │ RSHIFT │
          * └────────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴────────┘
          *                 ┌─────────┬─────┬─────────┐   ┌─────────┬─────┬─────┐
-         *                 │         │     │ to:SET  │   │    ▽    │  ▽  │     │
+         *                 │ BSPC/L2 │ MO3 │ LALT/L6 │   │  DEL/L5 │ MO1 │ SPC │
          *                 └─────────┴─────┴─────────┘   └─────────┴─────┴─────┘
          */
-        symbols {
+        colemak {
             bindings = <
-              &kp EXCLAMATION       &kp AT_SIGN      &kp HASH              &kp DOLLAR             &kp PERCENT  			&kp CARET       &kp AMPERSAND  &kp ASTERISK  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&kp GRAVE     &kp LEFT_BRACE        &kp RIGHT_BRACE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PIPE    			&kp UNDERSCORE  &kp PLUS       &kp MINUS     &kp EQUAL         &kp DOUBLE_QUOTES  &kp SQT
-&kp CAPSLOCK  &kp BACKSLASH  	    &kp TILDE        &sway_ws_back	&sway_ws_prev	&sway_ws_next			&none           &none          &none         &none             &none              &none
-                        &none  &none    &to 4       &none   &none   &none
+            &kp Q  &kp W  &kp F                &kp P  &kp G	         	&kp J       &kp L  &kp U                         &kp Y    &kp SEMI
+&kp LCTRL   &kp A  &kp R  &kp S                &kp T  &kp D         		&kp H       &kp N  &kp E                         &kp I    &kp O     &kp RET
+&kp LSHIFT  &kp Z  &kp X  &kp C                &kp V  &kp B         		&kp K       &kp M  &kp COMMA                     &kp DOT  &kp FSLH  &kp RSHIFT
+                          &lt_spc 2 BACKSPACE  &mo 3  &lt_spc 6 LALT	 	&lt_spc 5 DELETE  &mo 1  &kp SPACE
             >;
         };
-
 
         /*
          * Layer 2 — FUNC
@@ -280,25 +280,26 @@
         };
 
         /*
-         * Layer 7 — COLEMAK
+         * Layer 1 — SYMBOLS
          *          ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
-         *          │  Q  │  W  │  F  │  P  │  G  │   │  J  │  L  │  U  │  Y  │  ;  │
+         *          │  !  │  @  │  #  │  $  │  %  │   │  ^  │  &  │  *  │  [  │  ]  │
          * ┌────────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼────────┐
-         * │ LCTRL  │  A  │  R  │  S  │  T  │  D  │   │  H  │  N  │  E  │  I  │  O  │  RET   │
+         * │   `    │  {  │  }  │  (  │  )  │  |  │   │  _  │  +  │  -  │  =  │  "  │   '    │
          * ├────────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼────────┤
-         * │ LSHIFT │  Z  │  X  │  C  │  V  │  B  │   │  K  │  M  │  ,  │  .  │  /  │ RSHIFT │
+         * │  CAPS  │  \  │  ~  │ws_bk│ws_pv│ws_nx│   │     │     │     │     │     │        │
          * └────────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴────────┘
          *                 ┌─────────┬─────┬─────────┐   ┌─────────┬─────┬─────┐
-         *                 │ BSPC/L2 │ MO3 │ LALT/L6 │   │  DEL/L5 │ MO1 │ SPC │
+         *                 │         │     │ to:SET  │   │    ▽    │  ▽  │     │
          *                 └─────────┴─────┴─────────┘   └─────────┴─────┴─────┘
          */
-        colemak {
+        symbols {
             bindings = <
-            &kp Q  &kp W  &kp F                &kp P  &kp G	         	&kp J       &kp L  &kp U                         &kp Y    &kp SEMI
-&kp LCTRL   &kp A  &kp R  &kp S                &kp T  &kp D         		&kp H       &kp N  &kp E                         &kp I    &kp O     &kp RET
-&kp LSHIFT  &kp Z  &kp X  &kp C                &kp V  &kp B         		&kp K       &kp M  &kp COMMA                     &kp DOT  &kp FSLH  &kp RSHIFT
-                          &lt_spc 2 BACKSPACE  &mo 3  &lt_spc 6 LALT	 	&lt_spc 5 DELETE  &mo 1  &kp SPACE
+              &kp EXCLAMATION       &kp AT_SIGN      &kp HASH              &kp DOLLAR             &kp PERCENT  			&kp CARET       &kp AMPERSAND  &kp ASTERISK  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&kp GRAVE     &kp LEFT_BRACE        &kp RIGHT_BRACE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PIPE    			&kp UNDERSCORE  &kp PLUS       &kp MINUS     &kp EQUAL         &kp DOUBLE_QUOTES  &kp SQT
+&kp CAPSLOCK  &kp BACKSLASH  	    &kp TILDE        &sway_ws_back	&sway_ws_prev	&sway_ws_next			&none           &none          &none         &none             &none              &none
+                        &none  &none    &to 4       &none   &none   &none
             >;
         };
+
     };
 };
