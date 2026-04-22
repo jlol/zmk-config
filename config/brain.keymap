@@ -35,19 +35,18 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
-    };
 
-    cond_layers {
-        compatible = "zmk,conditional-layers";
-
-        // Define SETTINGS layer as tri-state
-
-        func_tristate {
-            if-layers = <2 3>;
-            then-layer = <4>;
+        lt_tog: layer_toggle_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TOGGLE_TAP";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&to>;
         };
     };
-
+    
     /*           40 Keys
 ╭─────────────────╮ ╭─────────────────╮
 │    0  1  2  3  4│ │ 5  6  7  8  9   │
@@ -138,10 +137,10 @@
          */
         default_layer {
             bindings = <
-            &kp Q  &kp W  &kp E                &kp R  &kp T	         	&kp Y       &kp U  &kp I                         &kp O    &kp P
+            &kp Q  &kp W  &kp E                &kp R  &kp T	         	    &kp Y       &kp U  &kp I                         &kp O    &kp P
 &kp LCTRL   &kp A  &kp S  &kp D                &kp F  &kp G         		&kp H       &kp J  &kp K                         &kp L    &kp SEMI  &kp RET
 &kp LSHIFT  &kp Z  &kp X  &kp C                &kp V  &kp B         		&kp N       &kp M  &kp COMMA                     &kp DOT  &kp FSLH  &kp RSHIFT
-                          &lt_spc 2 BACKSPACE  &mo 3  &lt_spc 6 LALT	 	&lt_spc 5 DELETE  &mo 7  &kp SPACE
+                          &lt_spc FUNC BACKSPACE  &mo NUMBER  &lt_tog LALT COLEMAK	 	&to COLEMAK     &mo SYMBOLS  &kp SPACE
             >;
         };
 
@@ -161,10 +160,10 @@
          */
         colemak {
             bindings = <
-            &kp Q  &kp W  &kp F                &kp P  &kp G	         	&kp J       &kp L  &kp U                         &kp Y    &kp SEMI
-&kp LCTRL   &kp A  &kp R  &kp S                &kp T  &kp D         		&kp H       &kp N  &kp E                         &kp I    &kp O     &kp RET
-&kp LSHIFT  &kp Z  &kp X  &kp C                &kp V  &kp B         		&kp K       &kp M  &kp COMMA                     &kp DOT  &kp FSLH  &kp RSHIFT
-                          &lt_spc 2 BACKSPACE  &mo 3  &lt_spc 6 LALT	 	&lt_spc 5 DELETE  &mo SYMBOLS  &kp SPACE
+            &kp Q  &kp W  &kp F                &kp P  &kp B	         	    &kp J       &kp L  &kp U        &kp Y    &kp SEMI
+&kp LCTRL   &kp A  &kp R  &kp S                &kp T  &kp G         		&kp M       &kp N  &kp E        &kp I    &kp O     &none
+&kp LSHIFT  &kp Z  &kp X  &kp C                &kp D  &kp V         		&kp K       &kp H  &kp COMMA    &kp DOT  &kp FSLH  &kp RSHIFT
+                          &lt_spc FUNC BACKSPACE  &mo 3  &lt_tog LALT DEFAULT	 	&to DEFAULT &mo SYMBOLS  &kp SPACE
             >;
         };
 
@@ -184,9 +183,9 @@
         func_layer {
             bindings = <
        &none      &kp LS(LG(S))  &none          &kp LC(INSERT)     &kp LS(INSERT)     &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END         &none
-&to 0  &alt_f1_1  &kp LS(LC(C))  &kp LS(LC(R))  &kp RIGHT_SHIFT    &kp RIGHT_CONTROL  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &kp RET  &none
-&to 2  &none      &none          &kp K_MUTE     &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &kp C_PREV      &kp C_PP        &kp C_NEXT    &none           &none          &none
-                                 &none          &none   &none       &none   &none   &none
+&none  &alt_f1_1  &kp LS(LC(C))  &kp LS(LC(R))  &kp RIGHT_SHIFT    &kp RIGHT_CONTROL  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &kp RET  &none
+&none  &none      &none          &kp K_MUTE     &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &kp C_PREV      &kp C_PP        &kp C_NEXT    &none           &none          &none
+                                 &none          &none   &none       &none   &none   &kp DELETE
             >;
         };
 
